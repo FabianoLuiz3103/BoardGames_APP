@@ -67,7 +67,10 @@ class MainActivity : AppCompatActivity() {
         // Preenche os campos de texto com os dados do jogo atual
         dialogBinding.editTextGameName.setText(boardGame.name)
         dialogBinding.editTextGameDescription.setText(boardGame.description)
-       // dialogBinding.logoJogo.im
+        Glide.with(this)
+            .load(boardGame.urlImage)
+            .into(dialogBinding.logoJogo);
+
         builder.setTitle("Editar Jogo")
         builder.setPositiveButton("Salvar") { _, _ ->
             val updatedGame = boardGame.copy(
